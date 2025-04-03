@@ -1,0 +1,60 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import PageHero from '../components/PageHero';
+
+const About = () => {
+  const sections = [
+    {
+      title: "Who We Are",
+      description: "WOW Zone, part of WOW Technologies and D2D Art, is a pioneering force in immersive entertainment, blending cutting-edge technology with boundless creativity. Our spaces are designed to deliver extraordinary interactive experiences that push the limits of storytelling, education, and engagement.",
+      image: "https://i.ibb.co/xtMpcrv5/Nice-slides-WOW-768x432.png"
+    },
+    {
+      title: "Our Vision",
+      description: "At WOW Zone, we envision a world where digital and physical experiences merge seamlessly, allowing audiences to engage with stories, games, and interactive media in new and meaningful ways. We harness AR, VR, AI, and experiential design to redefine entertainment and education.",
+      image: "https://i.ibb.co/k2L6TkFc/Screenshot-2024-11-21-202830-768x427.png"
+    },
+    {
+      title: "What We Do",
+      description: "From XR-powered installations and immersive storytelling to corporate activations and creative workshops, WOW Zone and WOW Technologies lead the way in crafting transformative experiences for diverse audiences, from families to enterprises.",
+      image: "https://i.ibb.co/jvYwq4PR/Presentation1-768x432.png"
+    },
+    {
+      title: "Join the Creative Party",
+      description: "Be part of a revolutionary journey into the world of immersive entertainment and creative technology. Whether you're a visitor, a collaborator, or a tech enthusiast, WOW Zone is your gateway to unforgettable experiences.",
+      image: "https://i.ibb.co/9HBTjwVN/tech-ai-2-768x432.gif"
+    }
+  ];
+
+  return (
+    <div>
+      <PageHero
+        title="About WOW Zone"
+        subtitle="The Future of Immersive Entertainment"
+        description="At WOW Zone, we don’t just create experiences; we build digital worlds that redefine engagement, learning, and entertainment."
+        imageUrl="https://i.ibb.co/4R6FMxq0/20241113-174549-1.gif"
+      />
+      <main className="container mx-auto px-4 py-32">
+        {sections.map((section, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="mb-16 flex flex-col md:flex-row items-center gap-12"
+          >
+            <div className="md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">{section.title}</h2>
+              <p className="text-xl text-gray-300 leading-relaxed">{section.description}</p>
+            </div>
+            <div className="md:w-1/2">
+              <img src={section.image} alt={section.title} className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+          </motion.div>
+        ))}
+      </main>
+    </div>
+  );
+};
+
+export default About;

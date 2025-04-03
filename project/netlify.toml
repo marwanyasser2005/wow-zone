@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://wowzone.netlify.app/*"
+  to = "https://wowzone.co/:splat"
+  status = 301
+  force = true
